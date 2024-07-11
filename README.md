@@ -1,4 +1,4 @@
-# pyfont
+# lazyfont
 
 A simple way to load fonts for matplotlib.
 
@@ -7,7 +7,7 @@ A simple way to load fonts for matplotlib.
 ## Installation
 
 ```
-pip install git+https://github.com/JosephBARBIERDARNAL/pyfont.git
+pip install git+https://github.com/JosephBARBIERDARNAL/lazyfont.git
 ```
 
 <br>
@@ -17,7 +17,7 @@ pip install git+https://github.com/JosephBARBIERDARNAL/pyfont.git
 #### Load a font for a matplotlib chart:
 
 ```python
-from pyfont import load_font
+from lazyfont import load_font
 import matplotlib.pyplot as plt
 
 # load font
@@ -41,8 +41,8 @@ plt.show()
 #### Download a font locally:
 
 ```python
-from pyfont import download_font
+from lazyfont import download_font
 download_font(family="Sarabun", style='normal', weight='thin')
 ```
 
-`Font installed at: /Users/josephbarbier/Desktop/pyfont/Sarabun_Thin.ttf`
+`Font installed at: /Users/josephbarbier/Desktop/lazyfont/Sarabun_Thin.ttf`
