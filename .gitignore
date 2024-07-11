@@ -1,0 +1,6 @@
+venv/
+__pycache__/
+.DS_Store
+pyfont.egg-info/
+*.ttf
+sandbox.ipynb
