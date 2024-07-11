@@ -4,6 +4,14 @@ A simple way to load fonts for matplotlib.
 
 <br>
 
+## Installation
+
+```
+pip install git+https://github.com/JosephBARBIERDARNAL/pyfont.git
+```
+
+<br>
+
 ## Usage
 
 #### Load a font for a matplotlib chart:
