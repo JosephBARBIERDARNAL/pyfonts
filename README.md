@@ -110,4 +110,6 @@ download_exact_font(
 )
 ```
 
+`Font installed at: /Users/josephbarbier/Desktop/pyfont/Ultra-Regular.ttf`
+
 <br>
