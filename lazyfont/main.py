@@ -97,6 +97,12 @@ def download_exact_font(
     Returns:
     - None
     """
+    if destination_path is None:
+        destination_path = os.path.join(
+            os.getcwd(), f"{font_url.split('/')[-1]}"
+        )
+        os.makedirs(os.path.dirname(destination_path), exist_ok=True)
+
     _add_font_locally(
         font_url=font_url, destination_path=destination_path, verbose=verbose
     )

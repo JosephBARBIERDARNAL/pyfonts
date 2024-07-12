@@ -11,7 +11,7 @@ def _get_font(font_url: str):
             temp_file.write(response.read())
         except HTTPError as e:
             if e.code == 404:
-                url_to_check = font_url.rsplit("/", 1)[0]
+                #url_to_check = font_url.rsplit("/", 1)[0]
                 url_to_check = "https://github.com/google/fonts/"
                 raise Exception(
                     f"Font file not found.\nPlease check if your font is available at: {url_to_check}"
