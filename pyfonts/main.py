@@ -30,7 +30,7 @@ def load_font(
     """
     mapped_style = _map_weight_and_style(weight, style)
     font_url = _get_font_url(family=family, mapped_style=mapped_style, license=license)
-    font = _get_font(font_url)
+    font = _get_font(font_url, license=license)
     return font
 
 

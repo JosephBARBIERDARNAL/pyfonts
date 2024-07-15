@@ -4,18 +4,33 @@ from tempfile import NamedTemporaryFile
 from matplotlib.font_manager import FontProperties
 
 
-def _get_font(font_url: str):
+def _get_font(font_url: str, license: str | None = None) -> FontProperties:
     with NamedTemporaryFile(delete=False, suffix=".ttf") as temp_file:
         try:
             response = urlopen(font_url)
             temp_file.write(response.read())
         except HTTPError as e:
             if e.code == 404:
-                #url_to_check = font_url.rsplit("/", 1)[0]
-                url_to_check = "https://github.com/google/fonts/"
-                raise Exception(
-                    f"Font file not found.\nPlease check if your font is available at: {url_to_check}"
-                )
+                # try the alternative URL with "[wght]"
+                alt_font_url = font_url.replace(".ttf", "[wght].ttf")
+                try:
+                    alt_response = urlopen(alt_font_url)
+                    temp_file.write(alt_response.read())
+                except HTTPError as alt_e:
+                    if alt_e.code == 404:
+                        url_to_check = "https://github.com/google/fonts/"
+                        if license is not None:
+                            url_to_check += f"tree/main/{license}/"
+                        raise Exception(
+                            f"Font file not found.\nPlease check if your font is available at: {url_to_check}"
+                        )
+                    else:
+                        raise Exception(
+                            f"HTTP Error {alt_e.code}: {alt_e.reason}")
+                except URLError:
+                    raise Exception(
+                        f"Failed to load font. This may be due to a lack of internet connection"
+                    )
             else:
                 raise Exception(f"HTTP Error {e.code}: {e.reason}")
         except URLError:
@@ -27,6 +42,8 @@ def _get_font(font_url: str):
 
 
 def _add_font_locally(font_url: str, destination_path: str, verbose: bool) -> None:
+    if not destination_path.endswith(".ttf"):
+        destination_path += ".ttf"
     try:
         response = urlopen(font_url)
         with open(destination_path, "wb") as out_file:
@@ -42,7 +59,7 @@ def _get_font_url(
     family: str,
     mapped_style: str = "Regular",
     license: str = "ofl",
-):
+) -> str:
     AVAILABLE_STYLE = [
         "Regular",
         "Bold",

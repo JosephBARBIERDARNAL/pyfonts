@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 
 setup(
-    name="lazyfont",
+    name="pyfonts",
     version="0.0.1",
     packages=find_packages(),
     description="A simple way to load fonts for matplotlib",
@@ -9,7 +9,7 @@ setup(
     long_description_content_type="text/markdown",
     author="Joseph Barbier",
     author_email="joseph.barbierdarnal@gmail.com",
-    url="https://github.com/JosephBARBIERDARNAL/lazyfont/blob/main/README.md",
+    url="https://github.com/JosephBARBIERDARNAL/pyfonts/blob/main/README.md",
     install_requires=[
         "matplotlib"
     ],
