@@ -1,152 +1,151 @@
-# pyfonts
+# PyFonts
 
 A simple way to load fonts for matplotlib.
 
 <br>
 
-## Installation
+Table of content:
+
+- [Quick Start](#quick-start)
+- [Find fonts](#how-to-find-fonts)
+- [Fonts in Matplotlib](#pyfonts-and-matplotlib)
+- [Other feature: download fonts](#other-feature-download-a-font-locally)
+
+<br><br>
+
+# Installation
 
 ```
 pip install git+https://github.com/JosephBARBIERDARNAL/pyfonts.git
 ```
 
-<br>
+<br><br>
 
-## Quick start
+# Quick start
 
 ```python
 from pyfonts import load_font
 import matplotlib.pyplot as plt
 
 # load font
-font = load_font(family='Sarabun', style='italic', weight='bold')
+font = load_font(
+   font_url="https://github.com/google/fonts/raw/main/apache/ultra/Ultra-Regular.ttf"
+)
 
 # check how the font looks on a minimalist example
-fig, ax = plt.subplots(figsize=(10, 6), dpi=200)
+fig, ax = plt.subplots(figsize=(10, 6))
 ax.text(
-   x=0.15, y=0.5,
-   s="What an easy way to load fonts, isn't it?",
-   font=font,
-   fontsize=20
+    x=0.5, y=0.5,
+    s=f"What an easy way to load fonts, isn't it?",
+    font=font, fontsize=20, ha="center"
 )
 plt.show()
 ```
 
 ![output of quick start](img/quickstart.png)
 
-<br>
+<br><br>
 
-## Which font is available?
+# How to find fonts?
 
-`pyfonts` looks up to the [google font repository](https://github.com/google/fonts/). This repo stores numerous different fonts, with different weight/style, and different license. When using `load_font()`, it goes into the repo and tries to find your font.
+### Google font
 
-For example, if you want to use the [Almendra](https://github.com/google/fonts/tree/main/ofl/almendra) font, you do:
+There are many fonts available on the web. The **easiest way** to find one is to follow these steps:
 
-```python
-font = load_font(family='Almendra')
-```
-
-By default, it will search for the `Almendra-Regular.ttf` file in the [Almendra directory](https://github.com/google/fonts/tree/main/ofl/almendra).
-
-The `style` and `weight` arguments are used to search for more specific font:
+- Browse [Google Font website](https://fonts.google.com/) to find a font that you like. Let's say you want to use [Amaranth](https://fonts.google.com/specimen/Amaranth?query=amaranth).
+- Go to [Google font github repository](https://github.com/google/fonts) and type the name of your desired font in the search bar. We find that Urbanist font file in **Bold** is named `https://github.com/google/fonts/blob/main/ofl/amaranth/Amaranth-Bold.ttf`.
+- copy the url and add `?raw=true` at the end, which gives us `https://github.com/google/fonts/blob/main/ofl/amaranth/Amaranth-Bold.ttf?raw=true`
+- and that's it! Just pass this to `load_font()` to use it in your matplotlib charts
 
 ```python
-load_font(family='Almendra', style='italic') # -> Almendra-Italic.ttf
-load_font(family='Almendra', weight='bold') # -> Almendra-Bold.ttf
-load_font(family='Almendra', weight='bold', style='italic') # -> Almendra-BoldItalic.ttf
-# And so on
-```
+from pyfonts import load_font
+import matplotlib.pyplot as plt
 
-Example of the available fonts for family [Almendra](https://github.com/google/fonts/tree/main/ofl/almendra):
-
-<img src='img/almendra-example.png' width=300>
-
-Unfortunately, since **not all fonts are available in all possible combinations**, if it does not exist, the code will raises an explicit error.
-
-<br>
-
-By default, the program uses `license='ofl'`, an argument used to determines in which directory of the google repo to look for. But one can perfectly change it to other directory names such `ufl` or `apache`. For example, the [Ultra font](https://github.com/google/fonts/tree/main/apache/ultra) is in the `apache` directory:
-
-```python
-# Does not work
-font = load_font(family='Ultra')
-
-# Works
-font = load_font(family='Ultra', license='apache')
-```
-
-<br>
-
-## Use font in matplotlib
-
-Once you loaded your font, you just have to pass it to the font argument that can be used in most matplotlib functions used to display text:
-
-```python
-load_font(family='Almendra', style='italic')
-
-ax.text(
-   x=0.15, y=0.5,
-   s="some text",
-   font=font,
-   fontsize=20
+font = load_font(
+   font_url="https://github.com/google/fonts/blob/main/ofl/amaranth/Amaranth-Bold.ttf?raw=true"
 )
+
+fig, ax = plt.subplots(figsize=(10, 6))
+ax.text(
+    x=0.5, y=0.5,
+    s=f"Congrats, you now have a cool font!",
+    font=font, fontsize=20, ha="center"
+)
+plt.show()
 ```
 
-<br>
+For the url to be readable by `PyFonts` when using a Github url, it must be in one of (the following 3 urls are completely equivalent):
 
-## Specifying the `[wght]`
+- `https://github.com/google/fonts/blob/main/apache/ultra/Ultra-Regular.ttf?raw=true`
+- `https://github.com/google/fonts/raw/main/apache/ultra/Ultra-Regular.ttf`
+- `https://raw.githubusercontent.com/google/fonts/raw/main/apache/ultra/Ultra-Regular.ttf`
 
-Some fonts have a `[wght]` in their name. For example:
+The **recommended** is the first (`https://github.com/google/fonts/blob/main/apache/ultra/Ultra-Regular.ttf?raw=true`) because you just need to add `?raw=true` after the end of the Github url.
 
-<img src='img/example-with-wght.png' width=300>
+### Other places for fonts
 
-If you want to load the [WorkSans](https://github.com/google/fonts/tree/main/ofl/worksans) font in italic, you have to **ignore the `[wght]`**, like any other font:
+Github is the ideal place to find fonts under a free licence. You can find many fonts on the web. Just make sure that the licence of the font allows you to use it in your project.
+
+You can find other fonts at:
+- [Awesome fonts](https://github.com/brabadu/awesome-fonts)
+- [Nerd fonts](https://github.com/ryanoasis/nerd-fonts)
+
+<br><br>
+
+# PyFonts and Matplotlib
+
+### How it works
+
+In order to work with any font, `PyFonts` creates a temporary file and uses this file to create a [FontProperties](https://matplotlib.org/stable/api/font_manager_api.html#matplotlib.font_manager.FontProperties) object. Once the object has been created with your font, the program deletes the temporary file as it no longer needs it.
+
+### Different weight and style
+
+When you load a font, **you don't load all its extensions**: bold, italic, thin etc, but only the one from the url. If you want to be able to use a font and its **bold** version, for example, you need to load both fonts:
 
 ```python
-font = load_font(family='WorkSans', style='italic')
+from pyfonts import load_font
+import matplotlib.pyplot as plt
+
+font = load_font(
+   font_url="https://github.com/google/fonts/blob/main/ofl/amaranth/Amaranth-Regular.ttf?raw=true"
+)
+bold_font = load_font(
+   font_url="https://github.com/google/fonts/blob/main/ofl/amaranth/Amaranth-Bold.ttf?raw=true"
+)
+
+fig, ax = plt.subplots(figsize=(10, 6))
+ax.text(
+    x=0.5, y=0.5,
+    s=f"Congrats, you now have a cool font!",
+    font=font, fontsize=20, ha="center"
+)
+ax.text(
+    x=0.5, y=0.3,
+    s=f"And now it's bold",
+    font=bold_font, fontsize=20, ha="center"
+)
+plt.show()
 ```
 
+![combine regular and bold font](img/change_weight.png)
 
-<br>
+<br><br>
 
-## Other more specific features
+# Other feature: download a font locally
 
-#### Download a font locally
+If for some reason you want to store the fonts you're working with, simply use the `download_font()` function. It just needs the arguments `font_url` (as described above) and `destination_path` (where you want to store them, by default in the current directory).
 
-The arguments have the same properties as described above:
+You can suppress the output message by adding `verbose=False` to it.
 
 ```python
 from pyfonts import download_font
 download_font(
-   family='Sarabun', style='normal', weight='thin',
-   destination_path='/Users/josephbarbier/Desktop/myfont'
+   font_url="https://github.com/google/fonts/raw/main/apache/ultra/Ultra-Regular.ttf",
+   destination_path="/Users/josephbarbier/Desktop/myfont.ttf" # optional
 )
 ```
 
 `Font installed at: /Users/josephbarbier/Desktop/myfont.ttf`
 
-#### Load/download exact font
 
-Since google font is not the only place that contains font, you can perfectly load a font using its url only:
-
-```python
-from pyfonts import load_exact_font
-
-font = load_exact_font(
-   font_url="https://github.com/google/fonts/raw/main/apache/ultra/Ultra-Regular.ttf"
-)
-```
-
-Or
-
-```python
-from pyfonts import download_exact_font
-
-download_exact_font(
-   font_url="https://github.com/google/fonts/raw/main/apache/ultra/Ultra-Regular.ttf"
-)
-```
-
-`Font installed at: /Users/josephbarbier/Desktop/pyfont/Ultra-Regular.ttf`
-
-<br>
+<br><br>

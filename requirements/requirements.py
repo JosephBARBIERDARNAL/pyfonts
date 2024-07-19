@@ -11,7 +11,12 @@ import subprocess
 packages = [
     "matplotlib"
 ]
+packages_dev = packages + \
+[
+    "streamlit",
+]
 REQUIREMENTS_FILE = "requirements.txt"
+REQUIREMENTS_FILE_DEV = "requirements-dev.txt"
 
 
 def get_package_version(package_name: str) -> str:
@@ -43,3 +48,14 @@ with open(REQUIREMENTS_FILE, "w") as file:
         else:
             print(f"Version not found for package {package}")
     print(f"{REQUIREMENTS_FILE} file updated\n\n")
+
+with open(REQUIREMENTS_FILE_DEV, "w") as file:
+    for package in packages_dev:
+        version = get_package_version(package)
+        if version:
+            packageVersion = f"{package}=={version}"
+            print(packageVersion)
+            file.write(packageVersion + "\n")
+        else:
+            print(f"Version not found for package {package}")
+    print(f"{REQUIREMENTS_FILE_DEV} file updated")
