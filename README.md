@@ -31,15 +31,18 @@ import matplotlib.pyplot as plt
 
 # load font
 font = load_font(
-   font_url="https://github.com/google/fonts/raw/main/apache/ultra/Ultra-Regular.ttf"
+    font_url="https://github.com/google/fonts/raw/main/apache/ultra/Ultra-Regular.ttf"
 )
 
 # check how the font looks on a minimalist example
 fig, ax = plt.subplots(figsize=(10, 6))
 ax.text(
-    x=0.5, y=0.5,
+    x=0.5,
+    y=0.5,
     s=f"What an easy way to load fonts, isn't it?",
-    font=font, fontsize=20, ha="center"
+    font=font,
+    fontsize=20,
+    ha="center",
 )
 plt.show()
 ```
@@ -64,14 +67,17 @@ from pyfonts import load_font
 import matplotlib.pyplot as plt
 
 font = load_font(
-   font_url="https://github.com/google/fonts/blob/main/ofl/amaranth/Amaranth-Bold.ttf?raw=true"
+    font_url="https://github.com/google/fonts/blob/main/ofl/amaranth/Amaranth-Bold.ttf?raw=true"
 )
 
 fig, ax = plt.subplots(figsize=(10, 6))
 ax.text(
-    x=0.5, y=0.5,
+    x=0.5,
+    y=0.5,
     s=f"Congrats, you now have a cool font!",
-    font=font, fontsize=20, ha="center"
+    font=font,
+    fontsize=20,
+    ha="center",
 )
 plt.show()
 ```
@@ -89,6 +95,7 @@ The **recommended** is the first (`https://github.com/google/fonts/blob/main/apa
 Github is the ideal place to find fonts under a free licence. You can find many fonts on the web. Just make sure that the licence of the font allows you to use it in your project.
 
 You can find other fonts at:
+
 - [Awesome fonts](https://github.com/brabadu/awesome-fonts)
 - [Nerd fonts](https://github.com/ryanoasis/nerd-fonts)
 
@@ -109,23 +116,22 @@ from pyfonts import load_font
 import matplotlib.pyplot as plt
 
 font = load_font(
-   font_url="https://github.com/google/fonts/blob/main/ofl/amaranth/Amaranth-Regular.ttf?raw=true"
+    font_url="https://github.com/google/fonts/blob/main/ofl/amaranth/Amaranth-Regular.ttf?raw=true"
 )
 bold_font = load_font(
-   font_url="https://github.com/google/fonts/blob/main/ofl/amaranth/Amaranth-Bold.ttf?raw=true"
+    font_url="https://github.com/google/fonts/blob/main/ofl/amaranth/Amaranth-Bold.ttf?raw=true"
 )
 
 fig, ax = plt.subplots(figsize=(10, 6))
 ax.text(
-    x=0.5, y=0.5,
+    x=0.5,
+    y=0.5,
     s=f"Congrats, you now have a cool font!",
-    font=font, fontsize=20, ha="center"
+    font=font,
+    fontsize=20,
+    ha="center",
 )
-ax.text(
-    x=0.5, y=0.3,
-    s=f"And now it's bold",
-    font=bold_font, fontsize=20, ha="center"
-)
+ax.text(x=0.5, y=0.3, s=f"And now it's bold", font=bold_font, fontsize=20, ha="center")
 plt.show()
 ```
 
@@ -141,13 +147,13 @@ You can suppress the output message by adding `verbose=False` to it.
 
 ```python
 from pyfonts import download_font
+
 download_font(
-   font_url="https://github.com/google/fonts/raw/main/apache/ultra/Ultra-Regular.ttf",
-   destination_path="/Users/josephbarbier/Desktop/myfont.ttf" # optional
+    font_url="https://github.com/google/fonts/raw/main/apache/ultra/Ultra-Regular.ttf",
+    destination_path="/Users/josephbarbier/Desktop/myfont.ttf",  # optional
 )
 ```
 
 `Font installed at: /Users/josephbarbier/Desktop/myfont.ttf`
-
 
 <br><br>
