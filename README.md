@@ -4,6 +4,8 @@ A simple way to load fonts for matplotlib.
 
 <br>
 
+Check out the [online documentation](https://pyfonts.streamlit.app/).
+
 Table of content:
 
 - [Quick Start](#quick-start)
