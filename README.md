@@ -47,7 +47,7 @@ ax.text(
 plt.show()
 ```
 
-![output of quick start](img/quickstart.png)
+![output of quick start](https://github.com/JosephBARBIERDARNAL/pyfonts/blob/main/img/quickstart.png?raw=true)
 
 <br><br>
 
@@ -135,7 +135,7 @@ ax.text(x=0.5, y=0.3, s=f"And now it's bold", font=bold_font, fontsize=20, ha="c
 plt.show()
 ```
 
-![combine regular and bold font](img/change_weight.png)
+![combine regular and bold font](https://github.com/JosephBARBIERDARNAL/pyfonts/blob/main/img/change_weight.png?raw=true)
 
 <br><br>
 
