@@ -1,6 +1,6 @@
 # PyFonts
 
-<img src="logo.png" alt="pyfonts logo" align="right" max-width="100px"/>
+<img src="logo.png" alt="pyfonts logo" align="right" width="200px"/>
 
 A simple way to load fonts for matplotlib.
 
