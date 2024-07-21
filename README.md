@@ -1,4 +1,7 @@
-# PyFonts
+<div style="position: relative;">
+    <h1>PyFonts</h1>
+    <img src="logo.png" alt="PyFonts Logo" style="position: absolute; top: 100%; right: 0; transform: translateY(-50%); max-height: 120px;">
+</div>
 
 A simple way to load fonts for matplotlib.
 
