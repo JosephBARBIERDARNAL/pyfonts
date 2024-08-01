@@ -1,6 +1,6 @@
 # PyFonts
 
-<img src="logo.png" alt="pyfonts logo" align="right" width="200px"/>
+<img src="https://github.com/JosephBARBIERDARNAL/pyfonts/blob/main/logo.png?raw=true" alt="pyfonts logo" align="right" width="200px"/>
 
 A simple way to load fonts for matplotlib.
 
@@ -18,6 +18,14 @@ Table of content:
 <br><br>
 
 # Installation
+
+You can install `pyfonts` directly from PyPI with:
+
+```
+pip install pyfonts
+```
+
+Alternatively you can install the **development version** with:
 
 ```
 pip install git+https://github.com/JosephBARBIERDARNAL/pyfonts.git

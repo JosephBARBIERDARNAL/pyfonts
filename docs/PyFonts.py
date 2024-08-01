@@ -35,18 +35,21 @@ st.code(
 
 run_code = st.button("Run code")
 if run_code:
-    font = load_font(font_url=font_url)
+    try:
+        font = load_font(font_url=font_url)
 
-    fig, ax = plt.subplots()
-    ax.text(
-        x=0.5,
-        y=0.5,
-        s="This font looks pretty cool!",
-        font=font,
-        fontsize=15,
-        ha="center",
-    )
-    st.pyplot(fig)
+        fig, ax = plt.subplots()
+        ax.text(
+            x=0.5,
+            y=0.5,
+            s="This font looks pretty cool!",
+            font=font,
+            fontsize=15,
+            ha="center",
+        )
+        st.pyplot(fig)
+    except:
+        st.error("You URL seems invalid.")
 st_spacing(3)
 
 
