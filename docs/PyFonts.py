@@ -55,11 +55,8 @@ st_spacing(3)
 
 st.markdown("## Install PyFonts")
 with st.expander("Installation"):
-    st.code(
-        """
-      pip install git+https://github.com/JosephBARBIERDARNAL/pyfonts.git
-      """
-    )
+    readme_content = read_readme_section("# Installation")
+    st.markdown(readme_content)
 st_spacing(3)
 
 
