@@ -2,8 +2,8 @@ import streamlit as st
 import matplotlib.pyplot as plt
 from pyfonts import load_font
 
-from utils import st_spacing, read_readme_section
-from ui import st_header, st_footer
+from utils import read_readme_section
+from ui import st_spacing, st_header, st_footer
 
 plt.rcParams["figure.dpi"] = 300
 

@@ -17,7 +17,7 @@ def test_load_font_success(mock_get_font):
     result = load_font("http://example.com/font.ttf")
 
     assert isinstance(result, FontProperties)
-    mock_get_font.assert_called_once_with(font_url="http://example.com/font.ttf")
+    mock_get_font.assert_called_once_with(font_location="http://example.com/font.ttf")
 
 
 def test_load_font_failure(mock_get_font):

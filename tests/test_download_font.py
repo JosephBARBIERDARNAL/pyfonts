@@ -15,7 +15,7 @@ def test_download_font_with_destination(mock_add_font_locally, tmp_path):
     download_font("http://example.com/font.ttf", str(destination))
 
     mock_add_font_locally.assert_called_once_with(
-        font_url="http://example.com/font.ttf",
+        font_location="http://example.com/font.ttf",
         destination_path=str(destination),
         verbose=True,
     )
@@ -28,7 +28,7 @@ def test_download_font_without_destination(mock_add_font_locally):
 
             expected_path = "/home/user/font.ttf"
             mock_add_font_locally.assert_called_once_with(
-                font_url="http://example.com/font.ttf",
+                font_location="http://example.com/font.ttf",
                 destination_path=expected_path,
                 verbose=True,
             )
@@ -39,7 +39,7 @@ def test_download_font_verbose_false(mock_add_font_locally):
     download_font("http://example.com/font.ttf", verbose=False)
 
     mock_add_font_locally.assert_called_once_with(
-        font_url="http://example.com/font.ttf",
+        font_location="http://example.com/font.ttf",
         destination_path=os.path.join(os.getcwd(), "font.ttf"),
         verbose=False,
     )
