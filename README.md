@@ -25,7 +25,7 @@ You can install `pyfonts` directly from PyPI with:
 pip install pyfonts
 ```
 
-Alternatively you can install the **development version** with:
+(not recommended) Alternatively you can install the **development version** with:
 
 ```
 pip install git+https://github.com/JosephBARBIERDARNAL/pyfonts.git
