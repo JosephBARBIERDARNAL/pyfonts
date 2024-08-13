@@ -14,10 +14,10 @@ def _get_font(font_location: str) -> FontProperties:
     if not is_an_url:
         font = FontProperties(fname=font_location)
         try:
-            font_name = font.get_name()
+            font.get_name()
         except FileNotFoundError:
             raise ValueError(f"Font file not found at : '{font_location}'")
-        return FontProperties(fname=font_location)
+        return font
 
     else:
         with NamedTemporaryFile() as temp_file:
@@ -36,13 +36,13 @@ def _get_font(font_location: str) -> FontProperties:
             except HTTPError as e:
                 if e.code == 404:
                     raise Exception(
-                        f"""
+                        """
                         404 error. The url passed does not point to a valid url: font file not found.
                         """
                     )
             except URLError:
                 raise Exception(
-                    f"Failed to load font. This may be due to a lack of internet connection."
+                    "Failed to load font. This may be due to a lack of internet connection."
                 )
             font = FontProperties(fname=temp_file.name)
             return font
@@ -72,12 +72,12 @@ def _add_font_locally(font_location: str, destination_path: str, verbose: bool) 
 
 
 def _is_valid_font_url(font_location: str) -> bool:
-
     try:
         result = urlparse(font_location)
         if not all([result.scheme, result.netloc, result.path]):
             return False
-    except:
+    except Exception as e:
+        print(e)
         return False
 
     if result.scheme not in ["http", "https"]:
