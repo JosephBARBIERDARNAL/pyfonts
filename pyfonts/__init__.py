@@ -1,3 +1,3 @@
-from .main import load_font, download_font
+from .main import load_font
 
-__all__ = ["load_font", "download_font"]
+__all__ = ["load_font"]

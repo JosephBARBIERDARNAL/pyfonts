@@ -1,42 +1,40 @@
 from matplotlib.font_manager import FontProperties
-import os
+from typing import Optional
 
-from .utils import _get_font, _add_font_locally
+from .get_font import _get_font_from_url, _get_local_font, _get_font_from_google
 
 
-def load_font(font_location: str) -> FontProperties:
+def load_font(
+    font_name: Optional[str] = None,
+    font_url: Optional[str] = None,
+    font_path: Optional[str] = None,
+    weight: Optional[str] = None,
+    style: Optional[str] = None,
+) -> FontProperties:
     """
-    Loads a font from the exact URL provided.
+    Loads a font from one of the following:
+        - Google font repo if `font_name`
+        - An url that points to a binary font file if `font_url`
+        - A locally stored font if `font_path`
 
     Parameters:
-    - font_location (str): The exact URL of a font file.
+    - font_name (Optional[str]): The name of the font to load from Google Fonts.
+    - font_url (Optional[str]): A URL pointing to a binary font file.
+    - font_path (Optional[str]): The local file path of the font.
+    - weight (Optional[str]): TODO
+    - style (Optional[str]): TODO
 
     Returns:
     - matplotlib.font_manager.FontProperties: A FontProperties object containing the loaded font.
     """
-    font = _get_font(font_location=font_location)
+
+    if font_url:
+        font = _get_font_from_url(font_url)
+
+    elif font_path:
+        font = _get_local_font(font_path)
+
+    elif font_name:
+        font = _get_font_from_google(font_name, weight=weight, style=style)
+
     return font
-
-
-def download_font(
-    font_location: str,
-    destination_path: str | None = None,
-    verbose=True,
-) -> None:
-    """
-    Download a font from the exact URL provided.
-
-    Parameters:
-    - font_location (str): The exact URL of a font file.
-    - destination_path (str): The path where the font file will be saved. If None, it will be saved in the current working directory.
-
-    Returns:
-    - None
-    """
-    if destination_path is None:
-        destination_path = os.path.join(os.getcwd(), f"{font_location.split('/')[-1]}")
-        os.makedirs(os.path.dirname(destination_path), exist_ok=True)
-
-    _add_font_locally(
-        font_location=font_location, destination_path=destination_path, verbose=verbose
-    )

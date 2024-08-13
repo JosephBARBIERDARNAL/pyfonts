@@ -5,3 +5,5 @@ __pycache__/
 pyfonts.egg-info/
 *.ttf
 sandbox.ipynb
+.ruff_cache/
+.pytest_cache/
