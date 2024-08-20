@@ -3,7 +3,7 @@ from urllib.error import URLError, HTTPError
 from tempfile import NamedTemporaryFile
 from matplotlib.font_manager import FontProperties
 
-from .is_url import _is_url, _is_valid_raw_url
+from .is_valid import _is_url, _is_valid_raw_url
 
 
 def _get_font_from_url(font_location: str) -> FontProperties:

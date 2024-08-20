@@ -41,3 +41,16 @@ def _is_valid_raw_url(url: str) -> bool:
             return True
 
     return False
+
+
+def _is_safe_input(font_name, font_url, font_path) -> bool:
+    if font_name and (font_url or font_path):
+        return False
+    elif font_url and (font_name or font_path):
+        return False
+    elif font_path and (font_name or font_url):
+        return False
+    elif not font_name and not font_url and not font_path:
+        return False
+    else:
+        return True

@@ -8,13 +8,8 @@
 
 import subprocess
 
-packages = [
-    "matplotlib"
-]
-packages_dev = packages + \
-[
-    "streamlit",
-]
+packages = ["matplotlib"]
+packages_dev = packages + ["pytest", "coverage"]
 REQUIREMENTS_FILE = "requirements.txt"
 REQUIREMENTS_FILE_DEV = "requirements-dev.txt"
 

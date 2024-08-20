@@ -1,2 +1,1 @@
 matplotlib==3.9.1
-git+https://github.com/JosephBARBIERDARNAL/pyfonts.git

@@ -1,5 +1,17 @@
 import pytest
-from pyfonts.is_url import _is_valid_raw_url, _is_url
+from pyfonts.is_valid import _is_valid_raw_url, _is_url, _is_safe_input
+
+
+def test_safe_input():
+    assert _is_safe_input("font_name", None, None) == True
+    assert _is_safe_input(None, "font_url", None) == True
+    assert _is_safe_input(None, None, "font_path") == True
+    assert _is_safe_input("font_name", "font_url", None) == False
+    assert _is_safe_input(None, "font_url", "font_path") == False
+    assert _is_safe_input("font_name", None, "font_path") == False
+    assert _is_safe_input("font_name", "font_url", "font_path") == False
+    assert _is_safe_input(None, None, None) == False
+    assert _is_safe_input("font_name", "font_url", "font_path") == False
 
 
 @pytest.mark.parametrize(

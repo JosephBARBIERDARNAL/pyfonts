@@ -3,7 +3,6 @@ dist/
 __pycache__/
 .DS_Store
 pyfonts.egg-info/
-*.ttf
 sandbox.ipynb
 .ruff_cache/
 .pytest_cache/
