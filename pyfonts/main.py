@@ -22,8 +22,8 @@ def load_font(
     - font_url (Optional[str]): A URL pointing to a binary font file.
     - font_path (Optional[str]): The local file path of the font.
     - font_name (Optional[str]): The name of the font to load from Google Fonts.
-    - weight (Optional[str]): TODO
-    - style (Optional[str]): TODO
+    - weight (Optional[str]): The weight of the font to load.
+    - style (Optional[str]):
 
     Returns:
     - matplotlib.font_manager.FontProperties: A FontProperties object containing the loaded font.

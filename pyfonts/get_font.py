@@ -8,7 +8,7 @@ from .is_valid import _is_url, _is_valid_raw_url
 
 def _get_font_from_url(font_location: str) -> FontProperties:
     """
-    Retrieves a font from a Github url. The function attempts to securely access the font
+    Retrieves a font from a Github url. The function attempts to access the font
     at the given url by checking a few elements, creates a temporary file with the
     font found and returns a FontProperties.
 
@@ -27,6 +27,7 @@ def _get_font_from_url(font_location: str) -> FontProperties:
             f"""
             The URL provided ({font_location}) does not appear to be valid.
             It must point to a binary font file from Github.
+            Have you forgotten to append `?raw=true` to the end of the URL?
             """
         )
 
