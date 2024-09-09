@@ -10,6 +10,8 @@ Check out [the online documentation](https://python-graph-gallery.com/pyfonts/).
 
 # Installation
 
+_Note: pyfonts requires **Python 3.9** and above._
+
 You can install `pyfonts` directly from PyPI with:
 
 ```
@@ -84,7 +86,7 @@ _Follow the steps below for your OS._
 
    - **Mac/Linux:**
      ```bash
-     python3 -m venv venv
+     python -m venv venv
      source venv/bin/activate
      ```
    - **Windows:**
