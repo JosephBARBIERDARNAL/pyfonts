@@ -1,15 +1,7 @@
-###############################################
-### HOW TO USE THIS SCRIPT
-### 1. Add new packages to the `packages` list.
-### 2. Run the script.
-### 3. The requirements.txt file is now updated.
-###############################################
-
-
 import subprocess
 
 packages = ["matplotlib"]
-packages_dev = packages + ["pytest", "coverage"]
+packages_dev = packages + ["pytest"]
 REQUIREMENTS_FILE = "requirements.txt"
 REQUIREMENTS_FILE_DEV = "requirements-dev.txt"
 
