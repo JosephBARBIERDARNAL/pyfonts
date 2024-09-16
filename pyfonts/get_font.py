@@ -74,14 +74,3 @@ def _get_local_font(font_location: str) -> FontProperties:
             raise ValueError(f"Font file not found at : '{font_location}'")
 
     return font
-
-
-def _get_font_from_google(
-    font_location: str, weight: str, style: str
-) -> FontProperties:
-    raise ValueError("Feature not available yet")
-
-    # font_dir = font_location.lower()
-    # available_files = _get_github_dir_files(path=f"ofl/{font_dir}")
-    # available_font_files = _filter_font_files(available_files)
-    # raw_tag = "?raw=true"
