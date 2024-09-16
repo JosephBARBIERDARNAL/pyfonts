@@ -1,6 +1,3 @@
-# Install pre-commit hooks via
-# pre-commit install
-
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
     rev: 2c9f875913ee60ca25ce70243dc24d5b6415598c # frozen: v4.6.0
@@ -46,6 +43,23 @@ repos:
     hooks:
       - id: codespell
         args: ["-w", "-L", "ist,cant,connexion,multline,checkin"]
+
+  - repo: local
+    hooks:
+      - id: custom-script
+        name: Verify requirements file
+        entry: python req.py
+        language: system
+        types: [python]
+
+  - repo: local
+    hooks:
+      - id: tests
+        name: Run tests
+        entry: pytest tests/
+        language: system
+        types: [python]
+
 ci:
   autofix_prs: false
   autofix_commit_msg: "[pre-commit.ci 🤖] Apply code format tools to PR"
