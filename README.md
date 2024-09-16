@@ -2,7 +2,7 @@
 
 <img src="https://github.com/JosephBARBIERDARNAL/static/blob/main/python-libs/pyfonts/image.png?raw=true" alt="pyfonts logo" align="right" width="200px"/>
 
-A simple way to load fonts for matplotlib.
+A simple (and reproducible) way to load fonts for `matplotlib`.
 
 Check out [the online documentation](https://python-graph-gallery.com/pyfonts/).
 

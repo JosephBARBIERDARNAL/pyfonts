@@ -9,13 +9,11 @@ def load_font(
     font_path: Optional[str] = None,
 ) -> FontProperties:
     """
-    Loads a font from one of the following:
-        - An url that points to a binary font file if `font_url`
-        - A locally stored font if `font_path`
+    Loads a FontProperties object from a remote Github repo or a local file.
 
     Parameters:
-    - font_url (Optional[str]): A URL pointing to a binary font file from Github.
-    - font_path (Optional[str]): The local file path of the font.
+    - font_url: A URL pointing to a binary font file from Github.
+    - font_path: The local file path of the font.
 
     Returns:
     - matplotlib.font_manager.FontProperties: A FontProperties object containing the loaded font.

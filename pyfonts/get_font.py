@@ -13,7 +13,7 @@ def _get_font_from_url(font_location: str) -> FontProperties:
     font found and returns a FontProperties.
 
     Params:
-    - font_location (str): url that points to the binary font file on Github
+    - font_location: url that points to the binary font file on Github
 
     Returns:
     - matplotlib.font_manager.FontProperties: A FontProperties object containing the loaded font.
@@ -57,7 +57,7 @@ def _get_local_font(font_location: str) -> FontProperties:
     Retrieves a font from a local path.
 
     Params:
-    - font_location (str): path to a font file.
+    - font_location: path to a font file.
 
     Returns:
     - matplotlib.font_manager.FontProperties: A FontProperties object containing the loaded font.
