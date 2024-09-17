@@ -22,6 +22,8 @@ pip install pyfonts
 
 # Quick start
 
+`pyfonts` is designed to make the code of your graphs more reproducible by removing the need to add the local path to the font files. For example:
+
 ```python
 from pyfonts import load_font
 import matplotlib.pyplot as plt
