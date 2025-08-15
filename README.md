@@ -1,3 +1,9 @@
+# 🚨 Important Notice
+
+> This repo has migrated [here](https://github.com/y-sunflower/pyfonts)!
+
+<br><br><br>
+
 # pyfonts
 
 <img src="https://github.com/JosephBARBIERDARNAL/static/blob/main/python-libs/pyfonts/image.png?raw=true" alt="Pyfonts logo" align="right" width="150px"/>
